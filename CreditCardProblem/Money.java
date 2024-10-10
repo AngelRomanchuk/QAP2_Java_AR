@@ -14,7 +14,7 @@ public class Money {
         this.cents = other.cents;
     }
 
-    // Add, Substrect
+    // Add, Substract this.amount from or to other.Amount
     public Money add(Money otherAmount) {
         long totalCents = (this.dollars * 100 + this.cents) + (otherAmount.dollars * 100 + otherAmount.cents);
         return new Money(totalCents / 100.0);
@@ -24,16 +24,14 @@ public class Money {
         return new Money(totalCents / 100.0);
     }
 
+
     public int compareTo(Money otherObject) {
         long thisTotalCents = this.dollars * 100 + this.cents;
         long otherTotalCents = otherObject.dollars * 100 + otherObject.cents;
         return Long.compare(thisTotalCents, otherTotalCents);
     }
 
-    public boolean equals(Object otherObject) {
-        if (this == otherObject) return true;
-        if (!(otherObject instanceof Money)) return false;
-        Money other = (Money) otherObject;
+    public boolean equals(Money other) {
         return this.dollars == other.dollars && this.cents == other.cents;
     }
 

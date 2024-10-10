@@ -11,21 +11,20 @@ public class CreditCard {
         this.owner = newCardHolder; // Assign owner
     }
 
+    // Get information
     public Money getBalance() {
-        return new Money(balance); // Return a copy
+        return new Money(balance);
     }
-
     public Money getCreditLimit() {
-        return new Money(creditLimit); // Return a copy
+        return new Money(creditLimit);
     }
-
     public String getPersonals() {
-        return owner.toString(); // Return owner information
+        return owner.toString();
     }
 
     public void charge(Money amount) {
         if (balance.add(amount).compareTo(creditLimit) <= 0) {
-            balance = balance.add(amount); // Update balance
+            balance = balance.add(amount);
             System.out.println("Charge: " + amount);
         } else {
             System.out.println("Exceeds credit limit");
